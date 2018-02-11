@@ -26,17 +26,21 @@
       expand: function expand(elem, callback) {
         var $elem = $(elem),
           instance = elements[$elem.attr('data-expand-id')],
-          newHeight, callText;
+          newHeight, callText, newPaddingT, newPaddingB;
         if (!instance.expanded) {
           newHeight = instance.height;
+          newPaddingT = instance.paddingTop;
+          newPaddingB = instance.paddingBot;
           callText = 'expand';
         } else {
-          newHeight = 0;
+          newHeight = newPaddingT = newPaddingB = 0;
           callText = 'shrink';
         }
         instance.expanded = !instance.expanded;
         $elem.animate({
-          height: newHeight
+          height: newHeight,
+          'padding-top': newPaddingT,
+          'padding-bottom': newPaddingB
         }, options.speed, options.easing, function() {
           if (typeof callback === 'function') {
             callback($elem, callText);
@@ -61,10 +65,16 @@
             instance = {
               id: elements.length,
               height: wrapper.height(),
+              paddingTop: wrapper.css('padding-top'),
+              paddingBot: wrapper.css('padding-bottom'),
               expanded: false
             };
-          wrapper.height(0);
-          wrapper.css('overflow', 'hidden');
+          wrapper.css({
+            'height': 0,
+            'padding-top': 0,
+            'padding-bottom': 0,
+            'overflow': 'hidden'
+          });
           wrapper.attr('data-expand-id', instance.id);
           elements.push(instance);
         });

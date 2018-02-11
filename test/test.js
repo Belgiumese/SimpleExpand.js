@@ -27,14 +27,14 @@ QUnit.test('Hides elements on initialisation', (assert) => {
   fixture.append('<div class="simpleExpand"><p>I am some content</p></div>');
 
   simpleExpand.init();
-  assert.deepEqual($('.simpleExpand').height(), 0, 'Height should be 0 by default.');
+  assert.deepEqual($('.simpleExpand').outerHeight(), 0, 'Height should be 0 by default.');
 });
 
 QUnit.test('Unhides & hides elements when called', (assert) => {
   let fixture = $('#qunit-fixture');
   fixture.append('<div class="simpleExpand"><p>I am some content</p></div>');
   let content = $('.simpleExpand'),
-    height = content.height();
+    height = content.outerHeight();
   simpleExpand.settings({
     speed: 0
   }).init();
@@ -42,11 +42,11 @@ QUnit.test('Unhides & hides elements when called', (assert) => {
   simpleExpand.expand(content[0]);
   let done = assert.async();
   setTimeout(() => {
-    assert.deepEqual(content.height(), height, 'Should be initial height when expanded');
+    assert.deepEqual(content.outerHeight(), height, 'Should be initial height when expanded');
 
     simpleExpand.expand(content[0]);
     setTimeout(() => {
-      assert.deepEqual(content.height(), 0, 'Should be 0 height when shrunk');
+      assert.deepEqual(content.outerHeight(), 0, 'Should be 0 height when shrunk');
       done();
     }, 0);
   }, 0);

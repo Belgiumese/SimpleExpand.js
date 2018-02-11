@@ -1,0 +1,6 @@
+/*Test padding compatibility*/
+
+.simpleExpand {
+  margin: 30px;
+  padding: 50px;
+}

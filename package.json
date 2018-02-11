@@ -1,6 +1,6 @@
 {
   "name": "simple-expand",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple, minimal (<1KB) hiding/revealing content plugin.",
   "main": "simpleExpand.js",
   "directories": {
