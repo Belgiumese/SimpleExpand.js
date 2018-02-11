@@ -1,0 +1,26 @@
+{
+  "name": "simple-expand",
+  "version": "1.0.0",
+  "description": "A simple, minimal (<1KB) hiding/revealing content plugin.",
+  "main": "simpleExpand.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Belgiumese/SimpleExpand.js.git"
+  },
+  "keywords": [
+    "show more",
+    "expand",
+    "reveal",
+    "plugin",
+    "jQuery"
+  ],
+  "author": "Belgiumese",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Belgiumese/SimpleExpand.js/issues"
+  },
+  "homepage": "https://github.com/Belgiumese/SimpleExpand.js#readme"
+}
